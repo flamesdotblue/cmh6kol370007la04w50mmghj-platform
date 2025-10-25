@@ -1,28 +1,26 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import HowItWorks from './components/HowItWorks';
+import ContactCTA from './components/ContactCTA';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const hotline = '+971561234567';
+  const whatsappLink = 'https://wa.me/971561234567?text=Hi%20BlueRex%20Rescue!%20I%27m%20stuck%20and%20need%20help.%20My%20location%20is%3A%20';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-neutral-950 text-white antialiased">
+      <Hero hotline={hotline} whatsappLink={whatsappLink} />
+      <main>
+        <Services />
+        <HowItWorks />
+        <ContactCTA hotline={hotline} whatsappLink={whatsappLink} />
+      </main>
+      <footer className="border-t border-white/10 py-8 text-center text-sm text-white/60">
+        <p>© {new Date().getFullYear()} BlueRex Offroad Rescue — UAE. Free community off-road recovery.</p>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
